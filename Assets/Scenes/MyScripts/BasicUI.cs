@@ -15,7 +15,7 @@ public class BasicUI : MonoBehaviour
         int height = 30;
         int buffer = 10;
 
-        List<string> itemList = Managers.Inventory.GetItemList();
+        List<string> itemList = ManagersPlayerAndInventory.Inventory.GetItemList();
 
         if (itemList.Count == 0)
         {
@@ -24,13 +24,13 @@ public class BasicUI : MonoBehaviour
 
         foreach (string item in itemList)
         {
-            int count = Managers.Inventory.GetItemCount(item);
+            int count = ManagersPlayerAndInventory.Inventory.GetItemCount(item);
             Texture2D image = Resources.Load<Texture2D>("Icons/" + item);
             GUI.Box(new Rect(posX, posY, width, height), new GUIContent("(" + count + ")", image));
             posX += width + buffer;
         }
 
-        string equipped = Managers.Inventory.equippedItem;
+        string equipped = ManagersPlayerAndInventory.Inventory.equippedItem;
         if (equipped != null)
         {
             posX = Screen.width - (width + buffer);
@@ -45,15 +45,15 @@ public class BasicUI : MonoBehaviour
         {
             if (GUI.Button(new Rect(posX, posY, width, height), "Equip " + item))
             {
-                Managers.Inventory.EquipItem(item);
+                ManagersPlayerAndInventory.Inventory.EquipItem(item);
             }
 
             if (item == "health")
             {
                 if (GUI.Button(new Rect(posX, posY + height + buffer, width, height), "Use Health"))
                 {
-                    Managers.Inventory.ConsumeItem("health");
-                    Managers.Player.ChangeHealth(25);
+                    ManagersPlayerAndInventory.Inventory.ConsumeItem("health");
+                    ManagersPlayerAndInventory.Player.ChangeHealth(25);
                 }
             }
 

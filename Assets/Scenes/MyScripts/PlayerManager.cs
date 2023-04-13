@@ -30,4 +30,9 @@ public class PlayerManager : MonoBehaviour, IGameManager
 
         Debug.Log("Health: " + health + "/" + maxHealth);
     }
+
+    public void Startup(NetworkService service)
+    {
+        throw new System.NotImplementedException();
+    }
 }

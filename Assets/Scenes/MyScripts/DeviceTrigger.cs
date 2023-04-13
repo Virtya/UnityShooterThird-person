@@ -9,7 +9,7 @@ public class DeviceTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (requireKey && Managers.Inventory.equippedItem != "key")
+        if (requireKey && ManagersPlayerAndInventory.Inventory.equippedItem != "key")
         {
             return;
         }

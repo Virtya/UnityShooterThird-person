@@ -24,7 +24,7 @@ public class InventoryManager : MonoBehaviour, IGameManager
 
     public void Startup()
     {
-        Debug.Log("Inventory managet starting...");
+        Debug.Log("Inventory manager starting...");
 
         _items = new Dictionary<string, int>();
 
@@ -85,5 +85,10 @@ public class InventoryManager : MonoBehaviour, IGameManager
         }
 
         DisplayItems();
+    }
+
+    public void Startup(NetworkService service)
+    {
+        throw new System.NotImplementedException();
     }
 }
